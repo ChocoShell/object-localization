@@ -6,11 +6,11 @@ import cv2
 import numpy as np
 import csv
 
-from generate_dataset import TRAIN_OUTPUT_FILE, VALIDATION_OUTPUT_FILE, DATASET_FOLDER
+from generate_dataset import TRAIN_OUTPUT_FILE, VALIDATION_OUTPUT_FILE, DATASET_FOLDER, TRAIN_FOLDER
 from train_model import create_model, IMAGE_SIZE, ALPHA, MEAN
 
 DEBUG = False
-WEIGHTS_FILE = "model-43.63.h5"
+WEIGHTS_FILE = "model-741.78.h5"
 
 def iou(boxA, boxB):
     xA = max(boxA[0], boxB[0])
@@ -99,10 +99,10 @@ def main():
     dataset_iou(VALIDATION_OUTPUT_FILE, model)
 
     print("\nTrying out unscaled image")
-    for k in os.listdir(DATASET_FOLDER):
-        if "jpg" in k:
+    for k in os.listdir(TRAIN_FOLDER):
+        if "png" in k:
             break
-    path = os.path.join(DATASET_FOLDER, k)
+    path = os.path.join(TRAIN_FOLDER, k)
     pred = predict_image(path, model)
 
     height, width, _ = cv2.imread(path).shape

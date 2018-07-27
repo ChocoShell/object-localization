@@ -100,7 +100,7 @@ def main():
     if not os.path.exists(VALIDATION_FOLDER):
         os.makedirs(VALIDATION_FOLDER)
 
-    with open(TRAIN_OUTPUT_FILE, "w") as train, open(VALIDATION_OUTPUT_FILE, "w") as validate:
+    with open(TRAIN_OUTPUT_FILE, "w", newline='') as train, open(VALIDATION_OUTPUT_FILE, "w", newline='') as validate:
         writer = csv.writer(train, delimiter=",")
         writer2 = csv.writer(validate, delimiter=",")
 
@@ -131,6 +131,7 @@ def main():
 
             row = [path, *scale_coordinates(width, height, xmin, ymin, xmax, ymax)]
             image = cv2.imread(path)
+
             if i <= len(xml_files) * SPLIT_RATIO:
                 row[0] = os.path.join(TRAIN_FOLDER, os.path.basename(path))
                 writer.writerow(row)

@@ -99,3 +99,14 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# models
+model-*.h5
+
+# csv
+*.csv
+
+# data folders
+annotations/
+train/
+validation/

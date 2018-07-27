@@ -14,13 +14,13 @@ from keras.utils import Sequence
 ALPHA = 0.35
 
 # 96, 128, 160, 192, 224
-IMAGE_SIZE = 96
+IMAGE_SIZE = 128
 
-EPOCHS = 10000
-BATCH_SIZE = 32
+EPOCHS = 1000
+BATCH_SIZE = 50
 PATIENCE = 500
 
-MEAN = np.array([[[336.45663766, 336.45663766, 336.45663766]]])
+MEAN = np.array([[[630.52835414, 630.52835414, 630.52835414]]])
 
 TRAIN_CSV = "train.csv"
 VALIDATION_CSV = "validation.csv"
